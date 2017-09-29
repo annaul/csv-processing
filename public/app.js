@@ -4,9 +4,11 @@
 function fileLoaded(reader) {
   var data = reader.result
   var lines = data.split('\n');
-  console.log(lines.length);
+  // TODO: where do the last 2 lines go?
   restructureData(data, lines);
   sortbyName(statement);
+  findGroupSum(names);
+  sortbySum(names);
 }
 
 $('input').change(function() {
@@ -40,16 +42,42 @@ function restructureData(data, lines) {
 // --- manipulate statement array ---
 var names = {};
 
+// Structure:
+// Names {
+//   retailer: [{transaction}, {transaction}, statsObj{ sum: ...}],
+//   retailer: [{transaction}, {transaction}, statsObj{ sum: ...}]
+// }
+
 function sortbyName(statement) {
   for (var i = 0; i < statement.length; i++) {
-    if (!statement[i].name) { break; }; 
+    if (!statement[i].name) { break; };
     var retailer = statement[i].name.split(' ')[0].split(/[^A-Za-z]/)[0].toLowerCase();
     if (!names.hasOwnProperty(retailer)) {
       names[retailer] = retailer = [];
     }
-    console.log('---', i ,retailer);
     names[statement[i].name.split(' ')[0].split(/[^A-Za-z]/)[0].toLowerCase()].push(statement[i]);
+    // TODO: why is just using variable retailer not working here?
   }
-  console.log(names);
   return names;
 }
+
+function findGroupSum(names) {
+  for (var key in names) {
+    var sum = 0;
+    for (var i = 0; i < names[key].length; i ++) {
+      sum+= parseInt(names[key][i]['amount']);
+    }
+    var statsObj = { sum: sum };
+    names[key].push(statsObj);
+  }
+}
+
+function sortbySum(names) {
+  var sortedBySum = [];
+  for (var key in names) {
+    sortedBySum.push(names[key]);
+  }
+  sortedBySum.sort(function(a, b) {
+    return a[a.length - 1]['sum'] - b[b.length -1]['sum'];
+  });
+};
