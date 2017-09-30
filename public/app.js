@@ -116,5 +116,4 @@ function sortbyDay(statement) {
       if (sun.names.indexOf(statement[i].name) === -1) sun.names.push(statement[i].name);
     }
   }
-  console.log('mon ', mon.number, mon.names, 'tue ', tue.number, tue.names, 'wed ', wed.number, wed.names, 'thur ', thur.number, thur.names, 'fri ', fri.number, fri.names, 'sat ', sat.number, sat.names, 'sun ', sun.number, sun.names);
 };
