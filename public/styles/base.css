@@ -1,8 +1,7 @@
 body {
   margin-left: 2vw;
+  line-height: 1.5em;
 }
 
 input {
-  display: block;
-  margin-top: 10vh;
 }
