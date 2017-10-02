@@ -1,1 +1,4 @@
-
+span {
+  display: inline-block;
+  margin: 0 1vw;
+}
