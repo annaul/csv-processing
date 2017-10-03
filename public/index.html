@@ -5,21 +5,21 @@
     <title>CSV Processing</title>
     <link rel="stylesheet" type="text/css" href="/styles/base.css">
     <link rel="stylesheet" type="text/css" href="/styles/module.css">
+    <script src="https://vega.github.io/vega/vega.min.js"></script>
     <script id="category-template" type="text/x-handlebars-template">
       <div class="retailer">
         {{ retailer }}
       </div>
     </script>
-
   </head>
   <body>
     <p>Hello!</p>
     <input type="file" id="input">
     <div class="categories"></div>
-
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="/vendor/handlebars.js"></script>
     <script type="text/javascript" src="/scripts/model/fileInput.js"></script>
     <script type="text/javascript" src="/scripts/view/categoryView.js"></script>
+    <script type="text/javascript" src="/scripts/view/chartView.js"></script>
   </body>
 </html>

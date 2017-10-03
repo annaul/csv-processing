@@ -14,10 +14,9 @@
     });
   });
 
-  //show a list of retailers to assign categories
   function showRetailers(names) {
     var retailerCategories = [
-      'clothing', 'groceries', 'entertainment', 'travel', 'donation',
+      'clothing', 'groceries', 'coffee', 'entertainment', 'travel', 'donation',
       'home', 'utilities', 'education', 'health', 'beauty', 'eating out', 'amazon'
     ];
     var template = Handlebars.compile($('#category-template').html());
@@ -54,12 +53,18 @@
         names[key][names[key].length - 1].category = 'entertainment';
       } else if (names[key][0]['name'].match(/TRACY IRVING|SEPHORA|RECOOP/g)) {
         names[key][names[key].length - 1].category = 'beauty';
-      } else if (names[key][0]['name'].match(/COMCAST/g)) {
+      } else if (names[key][0]['name'].match(/COMCAST|TMOBILE/g)) {
         names[key][names[key].length - 1].category = 'utilities';
-      } else if (names[key][0]['name'].match(/YOUSEFIAN/g)) {
+      } else if (names[key][0]['name'].match(/YOUSEFIAN|PHARMACY|LABCORP/g)) {
         names[key][names[key].length - 1].category = 'health';
       } else if (names[key][0]['name'].match(/AMAZON/g)) {
         names[key][names[key].length - 1].category = 'amazon';
+      } else if (names[key][0]['name'].match(/STARBUCKS|BEAN BOX/g)) {
+        names[key][names[key].length - 1].category = 'coffee';
+      } else if (names[key][0]['name'].match(/SALVATION ARMY|GLOBALGIVING/g)) {
+        names[key][names[key].length - 1].category = 'donation';
+      } else if (names[key][0]['name'].match(/HOUZZ|HOMEGOODS|IKEA/g)) {
+        names[key][names[key].length - 1].category = 'home';
       } else {
         names[key][names[key].length - 1].category = null;
       }
