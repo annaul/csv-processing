@@ -8,9 +8,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vega/3.0.5/vega.min.js"></script>
     <script type="text/javascript">
     var view;
-
     vega.loader()
-      .load('https://vega.github.io/vega/examples/bar-chart.vg.json')
+      // .load('https://vega.github.io/vega/examples/bar-chart.vg.json')
+      .load('/graph.json')
       .then(function(data) { render(JSON.parse(data)); });
 
     function render(spec) {
@@ -26,7 +26,6 @@
         {{ retailer }}
       </div>
     </script>
-
   </head>
   <body>
     <p>Hello!</p>

@@ -85,6 +85,7 @@
     sortedBySum.sort(function(a, b) {
       return a[a.length - 1]['sum'] - b[b.length -1]['sum'];
     });
+    return sortedBySum;
   };
 
   function sortbyDay(statement) {
@@ -121,8 +122,10 @@
       }
     }
   };
-
+  module.fileInput = fileInput;
   fileInput.statement = statement;
   fileInput.names = names;
-  module.fileInput = fileInput;
+  console.log('statement ', statement);
+  console.log('sum ', sortedBySum);
+
 })(window);
