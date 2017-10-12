@@ -78,7 +78,6 @@
       console.log(names[cat][names[cat].length - 1]);
     });
   }
-
   module.categoryView = categoryView;
 
 })(window);

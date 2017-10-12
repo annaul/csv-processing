@@ -12,7 +12,7 @@
     sortbyName(statement);
     findGroupSum(names);
     sortbySum(names);
-    sortbyDay(statement);
+    module.graphData.getGraphData();
   }
 
   $('#input').change(function() {
@@ -87,46 +87,8 @@
     });
     return sortedBySum;
   };
-
-  function sortbyDay(statement) {
-    var mon = {number: 0, names: []}; var tue = {number: 0, names: []}; var wed = {number: 0, names: []}; var thur = {number: 0, names: []}; var fri = {number: 0, names: []}; var sat = {number: 0, names: []}; var sun = {number: 0, names: []};
-
-    for (var i = 0; i < statement.length; i++) {
-      if (new Date(statement[i].date).getDay() === 1) {
-        mon.number += 1;
-        if (mon.names.indexOf(statement[i].name) === -1) mon.names.push(statement[i].name);
-      }
-      if (new Date(statement[i].date).getDay() === 2) {
-        tue.number += 1;
-        if (tue.names.indexOf(statement[i].name) === -1) tue.names.push(statement[i].name);
-      }
-      if (new Date(statement[i].date).getDay() === 3) {
-        wed.number += 1;
-        if (wed.names.indexOf(statement[i].name) === -1) wed.names.push(statement[i].name);
-      }
-      if (new Date(statement[i].date).getDay() === 4) {
-        thur.number += 1;
-        if (thur.names.indexOf(statement[i].name) === -1) thur.names.push(statement[i].name);
-      }
-      if (new Date(statement[i].date).getDay() === 5) {
-        fri.number += 1;
-        if (fri.names.indexOf(statement[i].name) === -1) fri.names.push(statement[i].name);
-      }
-      if (new Date(statement[i].date).getDay() === 6) {
-        sat.number += 1;
-        if (sat.names.indexOf(statement[i].name) === -1) sat.names.push(statement[i].name);
-      }
-      if (new Date(statement[i].date).getDay() === 0) {
-        sun.number += 1;
-        if (sun.names.indexOf(statement[i].name) === -1) sun.names.push(statement[i].name);
-      }
-    }
-  };
   module.fileInput = fileInput;
   fileInput.statement = statement;
   fileInput.names = names;
   fileInput.sortedBySum = sortedBySum;
-  console.log('statement ', statement);
-  console.log('sum ', sortedBySum);
-
 })(window);
