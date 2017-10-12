@@ -9,18 +9,19 @@
     <script type="text/javascript">
     var view;
     vega.loader()
-      // .load('https://vega.github.io/vega/examples/bar-chart.vg.json')
-      .load('/graph.json')
-      .then(function(data) { render(JSON.parse(data)); });
-
+    // .load('https://vega.github.io/vega/examples/bar-chart.vg.json')
+    var data = getGraphData();
+    function(data) {
+      render(JSON.parse(data));
+    }
     function render(spec) {
       view = new vega.View(vega.parse(spec))
-        .renderer('canvas')  // set renderer (canvas or svg)
-        .initialize('#view') // initialize view within parent DOM container
-        .hover()             // enable hover encode set processing
-        .run();
+      .renderer('canvas')  // set renderer (canvas or svg)
+      .initialize('#view') // initialize view within parent DOM container
+      .hover()             // enable hover encode set processing
+      .run();
     }
-  </script>
+    </script>
     <script id="category-template" type="text/x-handlebars-template">
       <div class="retailer">
         {{ retailer }}
@@ -36,6 +37,7 @@
     <script src="/vendor/handlebars.js"></script>
     <script type="text/javascript" src="/scripts/model/fileInput.js"></script>
     <script type="text/javascript" src="/scripts/view/categoryView.js"></script>
-    <script type="text/javascript" src="/scripts/view/chartView.js"></script>
+    <script type="text/javascript" src="/graph.js"></script>
+
   </body>
 </html>

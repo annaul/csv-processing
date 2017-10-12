@@ -125,6 +125,7 @@
   module.fileInput = fileInput;
   fileInput.statement = statement;
   fileInput.names = names;
+  fileInput.sortedBySum = sortedBySum;
   console.log('statement ', statement);
   console.log('sum ', sortedBySum);
 
