@@ -15,7 +15,7 @@
     var spec = module.graphData.getGraphData();
     var view = new vega.View(vega.parse(spec))
       .renderer('svg')  // set renderer (canvas or svg)
-      .initialize('#view') // initialize view within parent DOM container
+      .initialize('#bar') // initialize view within parent DOM container
       .hover()             // enable hover encode set processing
       .run();
   }

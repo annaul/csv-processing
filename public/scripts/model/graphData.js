@@ -13,10 +13,10 @@
       this.id = id
     }
 
-    for (var i = 3; i < 15; i++) {
+    for (var i = 0; i < 15; i++) {
       var category = module.fileInput.sortedBySum[i][0]['name'].split(/[^A-Za-z]/)[0].toLowerCase();
       var categoryArr = module.fileInput.names[category];
-      var amount = categoryArr[categoryArr.length - 1]['sum'];
+      var amount = categoryArr[categoryArr.length - 1]['sum'] * -1;
       var currentValue = new Values(category, amount, i);
       values.push(currentValue);
     }
