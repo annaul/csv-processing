@@ -1,38 +1,30 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>CSV Processing</title>
-    <link rel="stylesheet" type="text/css" href="/styles/base.css">
-    <link rel="stylesheet" type="text/css" href="/styles/module.css">
-    <!-- handlebars template for retailers -->
-    <script id="category-template" type="text/x-handlebars-template">
-      <div class="retailer">
-        {{ retailer }}
-      </div>
-    </script>
-    <!-- end -->
-  </head>
-  <body>
-    <p>Hello!</p>
-    <input type="file" id="input">
-    <!-- insert retailers here -->
-    <div class="categories"></div>
-    <!-- vega here -->
-    <div id="view"></div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vega/3.0.5/vega.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script type="text/javascript" src="/scripts/model/graphData.js"></script>
-    <script src="/vendor/handlebars.js"></script>
-    <script type="text/javascript" src="/scripts/model/fileInput.js"></script>
-    <script type="text/javascript" src="/scripts/view/categoryView.js"></script>
-    <script type="text/javascript">
-      var view = new vega.View(spec)
-        .renderer('svg')  // set renderer (canvas or svg)
-        .initialize('#view') // initialize view within parent DOM container
-        .hover()             // enable hover encode set processing
-        .run();
-    </script>
-
-  </body>
+<head>
+  <meta charset="utf-8">
+  <title>CSV Processing</title>
+  <link rel="stylesheet" type="text/css" href="/styles/base.css">
+  <link rel="stylesheet" type="text/css" href="/styles/module.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vega/3.0.0-beta.33/vega.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vega-embed/3.0.0-beta.17/vega-embed.js"></script>
+  <script id="category-template" type="text/x-handlebars-template">
+    <div class="retailer">
+      {{ retailer }}
+    </div>
+  </script>
+  <!-- end -->
+</head>
+<body>
+  <p>Hello!</p>
+  <input type="file" id="input">
+  <!-- vega here -->
+  <div id="view"></div>
+  <!-- insert retailers here -->
+  <div class="categories"></div>
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script src="/vendor/handlebars.js"></script>
+  <script type="text/javascript" src="/scripts/model/graphData.js"></script>
+  <script type="text/javascript" src="/scripts/model/fileInput.js"></script>
+  <script type="text/javascript" src="/scripts/view/categoryView.js"></script>
+</body>
 </html>

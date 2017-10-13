@@ -13,7 +13,7 @@
       this.id = id
     }
 
-    for (var i = 0; i < 5; i++) {
+    for (var i = 3; i < 15; i++) {
       var category = module.fileInput.sortedBySum[i][0]['name'].split(/[^A-Za-z]/)[0].toLowerCase();
       var categoryArr = module.fileInput.names[category];
       var amount = categoryArr[categoryArr.length - 1]['sum'];
@@ -22,8 +22,8 @@
     }
     var dataObj = {
       "$schema": "https://vega.github.io/schema/vega/v3.0.json",
-      "width": 400,
-      "height": 200,
+      "width": 1000,
+      "height": 300,
       "padding": 5,
       "data": [
         {

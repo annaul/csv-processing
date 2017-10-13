@@ -15,7 +15,7 @@
   });
 
   function showRetailers(names) {
-    var retailerCategories = [
+    var retailerCategories = [ ' ',
       'clothing', 'groceries', 'coffee', 'entertainment', 'travel', 'donation',
       'home', 'utilities', 'education', 'health', 'beauty', 'eating out', 'amazon'
     ];
@@ -74,8 +74,7 @@
   function chooseCategory(names) {
     $('select').change(function() {
       var cat = $(this).parent().prop('id')
-      names[cat][names[cat].length - 1].category = $(this).val();
-      console.log(names[cat][names[cat].length - 1]);
+      names[cat][names[cat].length - 1].category = $(this).val();      
     });
   }
   module.categoryView = categoryView;

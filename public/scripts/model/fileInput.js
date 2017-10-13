@@ -2,7 +2,7 @@
 
 (function(module) {
   var fileInput = {};
-
+  var spec;
   // --- get data from file ---
   function fileLoaded(reader) {
     var data = reader.result
@@ -12,7 +12,12 @@
     sortbyName(statement);
     findGroupSum(names);
     sortbySum(names);
-    module.graphData.getGraphData();
+    var spec = module.graphData.getGraphData();
+    var view = new vega.View(vega.parse(spec))
+      .renderer('svg')  // set renderer (canvas or svg)
+      .initialize('#view') // initialize view within parent DOM container
+      .hover()             // enable hover encode set processing
+      .run();
   }
 
   $('#input').change(function() {
@@ -91,4 +96,5 @@
   fileInput.statement = statement;
   fileInput.names = names;
   fileInput.sortedBySum = sortedBySum;
+  fileInput.spec = spec;
 })(window);
