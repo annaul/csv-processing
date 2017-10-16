@@ -7,9 +7,8 @@
     $.when( $.ajax( 'fileInput.js' )).then( function() {
       var statement = module.fileInput.statement;
       var names = module.fileInput.names;
-      showRetailers(names);
       autoAssignCategory(names);
-      // showCategories(names);
+      showRetailers(names);
       chooseCategory(names);
     });
   });
@@ -22,22 +21,20 @@
     $('thead').show();
     var template = Handlebars.compile($('#category-template').html());
     for (var key in names) {
-      var context = { retailerName: names[key][0]['name'], category: 'category' }
+      var category = names[key][names[key].length - 1]['category'];
+      var context = { retailerName: names[key][0]['name'], category: category}
       var html = template(context);
       $('.categories').append(html);
-    }
-  }
-
-  function showCategories(names) {
-    var retailersList = $('.retailer').siblings();
-    for (var i = 0; i < retailersList.length; i++) {
-      var keys = Object.keys(names)
-      var autoCategory = names[keys[i]][names[keys[i]].length - 1]['category']
-      if (autoCategory) {
-        $(retailersList[i]).append('<span>' + autoCategory + '</span>')
+      for (var i = 0; i < retailerCategories.length; i++) {
+        $('.retailer:last-child select').append(
+          '<option value=\"' + retailerCategories[i] + '\">' + retailerCategories[i] + '</option>');
       }
     }
   }
+
+  // function attachSelect() {
+  //   var row =
+  // }
 
   function autoAssignCategory(names) {
     for (var key in names) {
