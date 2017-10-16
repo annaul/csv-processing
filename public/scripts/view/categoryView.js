@@ -9,7 +9,7 @@
       var names = module.fileInput.names;
       showRetailers(names);
       autoAssignCategory(names);
-      showCategories(names);
+      // showCategories(names);
       chooseCategory(names);
     });
   });
@@ -22,7 +22,7 @@
     $('thead').show();
     var template = Handlebars.compile($('#category-template').html());
     for (var key in names) {
-      var context = { retailerName: names[key][0]['name'] }
+      var context = { retailerName: names[key][0]['name'], category: 'category' }
       var html = template(context);
       $('.categories').append(html);
     }
