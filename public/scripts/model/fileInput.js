@@ -12,6 +12,7 @@
     sortbyName(statement);
     findGroupSum(names);
     sortbySum(names);
+    // --- insert vega graph ---
     var spec = module.graphData.getGraphData();
     var view = new vega.View(vega.parse(spec))
       .renderer('svg')  // set renderer (canvas or svg)

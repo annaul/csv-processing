@@ -19,16 +19,12 @@
       'clothing', 'groceries', 'coffee', 'entertainment', 'travel', 'donation',
       'home', 'utilities', 'education', 'health', 'beauty', 'eating out', 'amazon'
     ];
+    $('thead').show();
     var template = Handlebars.compile($('#category-template').html());
     for (var key in names) {
-      var context = { retailer: names[key][0]['name'] };
+      var context = { retailerName: names[key][0]['name'] }
       var html = template(context);
       $('.categories').append(html);
-      $('.retailer:last-child').append('<select></select>').attr('id', key);
-      for (var i = 0; i < retailerCategories.length; i++) {
-        $('.retailer:last-child select').append(
-          '<option value=\"' + retailerCategories[i] + '\">' + retailerCategories[i] + '</option>');
-      }
     }
   }
 
@@ -74,7 +70,7 @@
   function chooseCategory(names) {
     $('select').change(function() {
       var cat = $(this).parent().prop('id')
-      names[cat][names[cat].length - 1].category = $(this).val();      
+      names[cat][names[cat].length - 1].category = $(this).val();
     });
   }
   module.categoryView = categoryView;
