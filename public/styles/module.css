@@ -2,3 +2,24 @@ span {
   display: inline-block;
   margin: 0 1vw;
 }
+
+.controls {
+  display: block;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 2vw;
+}
+
+table {
+  grid-column: 1 / 2;
+  grid-row: 1;
+}
+
+#bar {
+  grid-column: 2 / 2;
+  grid-row: 1;
+  margin-top: 1.5em; /*line hight*/
+}

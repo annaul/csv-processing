@@ -12,20 +12,6 @@
     sortbyName(statement);
     findGroupSum(names);
     sortbySum(names);
-    // --- insert vega bar graph ---
-    // var spec = module.graphData.getGraphData();
-    // var view = new vega.View(vega.parse(spec))
-    //   .renderer('svg')  // set renderer (canvas or svg)
-    //   .initialize('#bar') // initialize view within parent DOM container
-    //   .hover()             // enable hover encode set processing
-    //   .run();
-    // --- pie chart ---
-    var spec1 = module.nestedData.getNestedData();
-    var view = new vega.View(vega.parse(spec1))
-      .renderer('svg')  // set renderer (canvas or svg)
-      .initialize('#pie') // initialize view within parent DOM container
-      .hover()             // enable hover encode set processing
-      .run();
   }
 
   $('#input').change(function() {

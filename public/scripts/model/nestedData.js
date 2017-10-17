@@ -4,12 +4,14 @@
   function getNestedData() {
     var values = [];
     for (var i = 0; i < module.fileInput.sortedBySum.length; i++) {
-      var currentSum = module.fileInput.sortedBySum[i][module.fileInput.sortedBySum[i].length - 1]['sum'] * -1;
-      var currentName = module.fileInput.sortedBySum[i][module.fileInput.sortedBySum[i].length - 1]['name'];
-      console.log(currentName);
-      var category = module.fileInput.names[currentName][module.fileInput.names[currentName].length - 1]['category']
+      var sortedTransaction = module.fileInput.sortedBySum[i];
+      var currentSum = sortedTransaction[sortedTransaction.length - 1]['sum'] * -1;
+      var currentName = sortedTransaction[sortedTransaction.length - 1]['name'];
+      var category = sortedTransaction[sortedTransaction.length - 1]['category'];
+      console.log(currentName, category);
       var currentObject = { 'a': category, 'b': currentName, 'c': currentSum };
       values.push(currentObject);
+      console.log(currentObject);
     }
     console.log(values);
     return {
@@ -91,7 +93,7 @@
       ],
 
       "axes": [
-        { "orient": "bottom", "scale": "xscale", "domain": true }
+        { "orient": "top", "scale": "xscale", "domain": true }
       ],
 
       "marks": [

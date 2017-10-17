@@ -18,27 +18,26 @@
   </script>
 </head>
 <body>
-  <input type="file" id="input">
-  <button type="button">Bar Chart</button>
-  <!-- vega here -->
-  <div id="bar"></div>
-  <div id="pie"></div>
-  <!-- insert retailers here -->
-  <table>
-    <thead style="display: none">
-      <th></th>
-      <th>Retailer</th>
-      <th>Category</th>
-      <th>Select category</th>
-    </thead>
-    <tbody class="categories">
-    </tbody>
-  </table>
+  <div class="controls">
+    <input type="file" id="input">
+    <!-- <button type="button">Bar Chart</button> -->
+  </div>
+  <div class="container">
+    <table>
+      <thead style="display: none">
+        <th></th>
+        <th>Retailer</th>
+        <th>Category</th>
+        <th>Select category</th>
+      </thead>
+      <tbody class="categories">
+      </tbody>
+    </table>
+    <div id="bar"></div>
+  </div>
   <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
   <script src="/vendor/handlebars.js"></script>
-  <!-- <script type="text/javascript" src="/scripts/model/graphData.js"></script> -->
   <script type="text/javascript" src="/scripts/model/nestedData.js"></script>
-  <!-- <script type="text/javascript" src="/scripts/model/pieData.js"></script> -->
   <script type="text/javascript" src="/scripts/model/fileInput.js"></script>
   <script type="text/javascript" src="/scripts/view/categoryView.js"></script>
 </body>
