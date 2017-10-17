@@ -1,4 +1,4 @@
 Client side data processing app that takes a .csv file and restructures it into .json format to then analyze and output vega powered visuals.
 
 
-![screenshot](./public/img/screen-shot.png =300X200)
+![screenshot](./public/img/screen-shot.png)
