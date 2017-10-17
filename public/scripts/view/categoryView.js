@@ -13,6 +13,10 @@
     });
   });
 
+  $('button').click(function(){
+    $('#bar').toggle();
+  });
+
   function showRetailers(names) {
     var retailerCategories = [ ' ',
       'clothing', 'groceries', 'coffee', 'entertainment', 'travel', 'donation',
@@ -20,9 +24,11 @@
     ];
     $('thead').show();
     var template = Handlebars.compile($('#category-template').html());
+    var number = 1;
     for (var key in names) {
       var category = names[key][names[key].length - 1]['category'];
-      var context = { retailerName: names[key][0]['name'], category: category}
+      var context = { number: number + '.', retailerName: names[key][0]['name'], category: category }
+      number += 1;
       var html = template(context);
       $('.categories').append(html);
       for (var i = 0; i < retailerCategories.length; i++) {
@@ -31,10 +37,6 @@
       }
     }
   }
-
-  // function attachSelect() {
-  //   var row =
-  // }
 
   function autoAssignCategory(names) {
     for (var key in names) {
