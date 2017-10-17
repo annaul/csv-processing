@@ -69,7 +69,6 @@
     for (var i = 0; i < statement.length; i++) {
       if (!statement[i].name) { break; };
       var retailer = statement[i].name.split(' ')[0].split(/[^A-Za-z]/)[0].toLowerCase();
-      //.split(/[^A-Za-z]/)[0].toLowerCase()
       if (!names.hasOwnProperty(retailer)) {
         names[retailer] = retailer = [];
       }
@@ -85,7 +84,7 @@
       for (var i = 0; i < names[key].length; i ++) {
         sum+= parseInt(names[key][i]['amount']);
       };
-      var statsObj = { sum: sum };
+      var statsObj = { sum: sum, name: key};
       names[key].push(statsObj);
     };
   };

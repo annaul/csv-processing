@@ -3,10 +3,12 @@
 
   function getNestedData() {
     var values = [];
-    for (var i = 0; i < 5; i++) {
+    for (var i = 0; i < module.fileInput.sortedBySum.length; i++) {
       var currentSum = module.fileInput.sortedBySum[i][module.fileInput.sortedBySum[i].length - 1]['sum'] * -1;
-      var currentName = module.fileInput.sortedBySum[i][0]['name']
-      var currentObject = { 'a': i, 'b': currentName, 'c': currentSum };
+      var currentName = module.fileInput.sortedBySum[i][module.fileInput.sortedBySum[i].length - 1]['name'];
+      console.log(currentName);
+      var category = module.fileInput.names[currentName][module.fileInput.names[currentName].length - 1]['category']
+      var currentObject = { 'a': category, 'b': currentName, 'c': currentSum };
       values.push(currentObject);
     }
     console.log(values);
