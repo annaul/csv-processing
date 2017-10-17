@@ -3,17 +3,20 @@
 
   function getNestedData() {
     var values = [];
+    var nullValues = [];
     for (var i = 0; i < module.fileInput.sortedBySum.length; i++) {
       var sortedTransaction = module.fileInput.sortedBySum[i];
       var currentSum = sortedTransaction[sortedTransaction.length - 1]['sum'] * -1;
-      var currentName = sortedTransaction[sortedTransaction.length - 1]['name'];
+      var currentName = sortedTransaction[sortedTransaction.length - 1]['name'].toUpperCase();
       var category = sortedTransaction[sortedTransaction.length - 1]['category'];
-      console.log(currentName, category);
       var currentObject = { 'a': category, 'b': currentName, 'c': currentSum };
-      values.push(currentObject);
-      console.log(currentObject);
+      if (!currentObject.a) {
+        nullValues.push(currentObject);
+      } else {
+        values.push(currentObject);
+      }
     }
-    console.log(values);
+    values = values.concat(nullValues);
     return {
       "$schema": "https://vega.github.io/schema/vega/v3.0.json",
       "width": 300,

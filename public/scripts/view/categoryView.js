@@ -11,7 +11,6 @@
       showRetailers(names);
       chooseCategory(names);
       var spec1 = module.nestedData.getNestedData();
-      console.log('------', module.fileInput.sortedBySum[63][module.fileInput.sortedBySum[63].length - 1]['category']);
       var view = new vega.View(vega.parse(spec1))
         .renderer('svg')  // set renderer (canvas or svg)
         .initialize('#bar') // initialize view within parent DOM container
