@@ -7,15 +7,18 @@
     $.when( $.ajax( 'fileInput.js' )).then( function() {
       var statement = module.fileInput.statement;
       var names = module.fileInput.names;
+      var sortedBySum = module.fileInput.sortedBySum;
       autoAssignCategory(names);
-      showRetailers(names);
+      showRetailers(sortedBySum);
       chooseCategory(names);
-      var spec1 = module.nestedData.getNestedData();
-      var view = new vega.View(vega.parse(spec1))
-        .renderer('svg')  // set renderer (canvas or svg)
-        .initialize('#bar') // initialize view within parent DOM container
-        .hover()             // enable hover encode set processing
-        .run();
+      // var spec1 = module.nestedData.getNestedData();
+      // var view = new vega.View(vega.parse(spec1))
+      //   .renderer('svg')  // set renderer (canvas or svg)
+      //   .initialize('#bar') // initialize view within parent DOM container
+      //   .hover()             // enable hover encode set processing
+      //   .run();
+      //   $('.mark-rect').css('background', 'black')
+
     });
   });
 
@@ -23,7 +26,7 @@
     $('#bar').toggle();
   });
 
-  function showRetailers(names) {
+  function showRetailers(sortedBySum) {
     var retailerCategories = [ ' ',
       'clothing', 'groceries', 'coffee', 'entertainment', 'travel', 'donation',
       'home', 'utilities', 'education', 'health', 'beauty', 'eating out', 'amazon'
@@ -31,9 +34,11 @@
     $('thead').show();
     var template = Handlebars.compile($('#category-template').html());
     var number = 1;
-    for (var key in names) {
-      var category = names[key][names[key].length - 1]['category'];
-      var context = { number: number + '.', retailerName: names[key][0]['name'], category: category }
+    for (var i = 0; i < sortedBySum.length; i++) {
+      // TO DO: put everything in first position, this is a nightmare!
+      var a = sortedBySum[i];
+      var retailerInfo = sortedBySum[i][a.length - 1];
+      var context = { number: number + '.', retailerName: retailerInfo['name'], amount: retailerInfo['sum']}
       number += 1;
       var html = template(context);
       $('.categories').append(html);
