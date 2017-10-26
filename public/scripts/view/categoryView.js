@@ -39,7 +39,7 @@
       // TODO: put everything in first position, this is a nightmare!
       var a = sortedBySum[i];
       var retailerInfo = sortedBySum[i][a.length - 1];
-      var context = { number: number, retailerName: a[0]['name'], amount: retailerInfo['sum']}
+      var context = { number: number + '.', retailerName: a[0]['name'], amount: retailerInfo['sum']}
       number += 1;
       total += retailerInfo['sum'];
 
