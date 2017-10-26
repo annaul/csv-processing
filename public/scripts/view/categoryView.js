@@ -21,7 +21,7 @@
 
     });
   });
-
+  // TODO: improve flow, no ajax/ when
   $('button').click(function(){
     $('#bar').toggle();
   });
@@ -34,19 +34,26 @@
     $('thead').show();
     var template = Handlebars.compile($('#category-template').html());
     var number = 1;
+    var total = 0;
     for (var i = 0; i < sortedBySum.length; i++) {
-      // TO DO: put everything in first position, this is a nightmare!
+      // TODO: put everything in first position, this is a nightmare!
       var a = sortedBySum[i];
       var retailerInfo = sortedBySum[i][a.length - 1];
-      var context = { number: number + '.', retailerName: retailerInfo['name'], amount: retailerInfo['sum']}
+      var context = { number: number, retailerName: a[0]['name'], amount: retailerInfo['sum']}
       number += 1;
+      total += retailerInfo['sum'];
+
       var html = template(context);
       $('.categories').append(html);
-      for (var i = 0; i < retailerCategories.length; i++) {
+      for (var j = 0; j < retailerCategories.length; j++) {
         $('.retailer:last-child select').append(
-          '<option value=\"' + retailerCategories[i] + '\">' + retailerCategories[i] + '</option>');
+          '<option value=\"' + retailerCategories[j] + '\">' + retailerCategories[j] + '</option>');
       }
     }
+    context = { amount: total };
+
+    $('.categories').append(template(context));
+    $('tr:last-child td:last-child').remove();
   }
 
   function autoAssignCategory(names) {
