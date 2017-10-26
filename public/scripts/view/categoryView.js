@@ -39,7 +39,7 @@
       // TODO: put everything in first position, this is a nightmare!
       var a = sortedBySum[i];
       var retailerInfo = sortedBySum[i][a.length - 1];
-      var context = { number: number + '.', retailerName: a[0]['name'], amount: retailerInfo['sum']}
+      var context = { number: number + '.', retailerName: a[0]['name'], amount: retailerInfo['sum'], category: retailerInfo['category']}
       number += 1;
       total += retailerInfo['sum'];
 
@@ -87,8 +87,9 @@
 
   function chooseCategory(names) {
     $('select').change(function() {
-      var cat = $(this).parent().prop('id')
-      names[cat][names[cat].length - 1].category = $(this).val();
+      var cat = $(this).children(':selected').text();
+      var row = $(this).parent().parent().index() + 1;
+      $('.categories tr:nth-child(' + row + ') td:nth-child(4)').empty().append(cat);
     });
   }
   module.categoryView = categoryView;
