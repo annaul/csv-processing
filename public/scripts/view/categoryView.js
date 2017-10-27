@@ -10,7 +10,7 @@
       var sortedBySum = module.fileInput.sortedBySum;
       autoAssignCategory(names);
       showRetailers(sortedBySum);
-      chooseCategory(names);
+      chooseCategory(sortedBySum);
       // var spec1 = module.nestedData.getNestedData();
       // var view = new vega.View(vega.parse(spec1))
       //   .renderer('svg')  // set renderer (canvas or svg)
@@ -85,11 +85,13 @@
     }
   }
 
-  function chooseCategory(names) {
+  function chooseCategory(sortedBySum) {
     $('select').change(function() {
       var cat = $(this).children(':selected').text();
       var row = $(this).parent().parent().index() + 1;
       $('.categories tr:nth-child(' + row + ') td:nth-child(4)').empty().append(cat);
+
+      sortedBySum[row - 1][sortedBySum[row - 1].length - 1]['category'] = cat;
     });
   }
   module.categoryView = categoryView;
